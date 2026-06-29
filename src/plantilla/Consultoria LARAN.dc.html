@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin:0; background:#F5F0E8; color:#1C1C1C; font-family:'DM Sans',sans-serif; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  * { box-sizing:border-box; }
+  ::selection { background:#7A8C6E; color:#F5F0E8; }
+  input::placeholder, textarea::placeholder { color:#A89F90; }
+  input:focus, textarea:focus { outline:none; border-color:#7A8C6E !important; }
+</style>
+</helmet>
+
+<div style="background:#F5F0E8; overflow-x:hidden;">
+
+  <!-- ===================== NAV ===================== -->
+  <nav ref="{{ navRef }}" style="position:fixed; top:0; left:0; right:0; z-index:100; transition:background .3s ease, box-shadow .3s ease;">
+    <div style="max-width:1200px; margin:0 auto; padding:16px clamp(20px,5vw,48px); display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <a href="#inicio" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#1C1C1C;">
+        <img src="{{ logo }}" alt="LARAN" style="width:46px; height:46px; object-fit:contain;">
+        <span style="display:flex; flex-direction:column; line-height:1;">
+          <span style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:22px; letter-spacing:.14em;">LARAN</span>
+          <span style="font-family:'DM Sans',sans-serif; font-size:8.5px; font-weight:500; letter-spacing:.26em; text-transform:uppercase; color:#7A8C6E; margin-top:3px;">Consultoría Organizacional</span>
+        </span>
+      </a>
+      <div style="display:flex; align-items:center; gap:clamp(14px,2.4vw,34px); flex-wrap:wrap; justify-content:flex-end;">
+        <a href="#inicio" style="font-size:14px; font-weight:400; color:#1C1C1C; text-decoration:none; letter-spacing:.02em;">Inicio</a>
+        <a href="#nosotros" style="font-size:14px; font-weight:400; color:#1C1C1C; text-decoration:none; letter-spacing:.02em;">Nosotros</a>
+        <a href="#servicios" style="font-size:14px; font-weight:400; color:#1C1C1C; text-decoration:none; letter-spacing:.02em;">Servicios</a>
+        <a href="#testimonios" style="font-size:14px; font-weight:400; color:#1C1C1C; text-decoration:none; letter-spacing:.02em;">Testimonios</a>
+        <a href="#contacto" style="display:inline-flex; align-items:center; gap:8px; font-family:'DM Sans',sans-serif; font-weight:500; font-size:13.5px; letter-spacing:.04em; padding:11px 22px; border:1px solid #1C1C1C; border-radius:2px; color:#1C1C1C; text-decoration:none; background-image:linear-gradient(to right,#7A8C6E 50%, transparent 50%); background-size:200% 100%; background-position:right bottom; transition:background-position .35s cubic-bezier(0.25,0.46,0.45,0.94), color .35s ease, border-color .35s ease;" style-hover="background-position:left bottom; color:#F5F0E8; border-color:#7A8C6E;">Contáctanos</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="inicio" style="scroll-margin-top:80px; position:relative; padding:clamp(120px,16vh,170px) clamp(20px,5vw,48px) clamp(64px,9vw,96px); overflow:hidden;">
+    <img src="{{ logo }}" alt="" aria-hidden="true" style="position:absolute; right:-6%; top:50%; transform:translateY(-50%); width:min(720px,80vw); opacity:.04; pointer-events:none; user-select:none;">
+    <div style="max-width:1200px; margin:0 auto; position:relative; display:flex; align-items:center; gap:clamp(32px,5vw,72px); flex-wrap:wrap;">
+      <div data-reveal style="flex:1 1 460px; min-width:300px; opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+          <span style="width:40px; height:1px; background:#7A8C6E;"></span>
+          <span style="font-size:12px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:#7A8C6E;">Consultoría Organizacional</span>
+        </div>
+        <h1 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(46px,7vw,82px); line-height:0.98; letter-spacing:-0.01em; margin:0 0 28px;">Impulsamos el cambio,<br><span style="font-style:italic; font-weight:500; color:#7A8C6E;">potenciamos</span> resultados.</h1>
+        <p style="font-size:clamp(16px,1.4vw,19px); line-height:1.7; color:#4a463f; max-width:540px; margin:0 0 40px;">Acompañamos a empresas y organizaciones en sus procesos de transformación del talento humano — desde el reclutamiento hasta el desarrollo y bienestar de cada colaborador.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <a href="#servicios" style="display:inline-flex; align-items:center; gap:10px; font-family:'DM Sans',sans-serif; font-weight:500; font-size:14px; letter-spacing:.04em; padding:16px 28px; border:1px solid #1C1C1C; border-radius:2px; color:#1C1C1C; text-decoration:none; background-image:linear-gradient(to right,#7A8C6E 50%, transparent 50%); background-size:200% 100%; background-position:right bottom; transition:background-position .35s cubic-bezier(0.25,0.46,0.45,0.94), color .35s ease, border-color .35s ease;" style-hover="background-position:left bottom; color:#F5F0E8; border-color:#7A8C6E;">Conoce nuestros servicios <span style="font-size:16px;">→</span></a>
+          <a href="#contacto" style="display:inline-flex; align-items:center; gap:10px; font-family:'DM Sans',sans-serif; font-weight:500; font-size:14px; letter-spacing:.04em; padding:16px 28px; border:1px solid #C8C0B4; border-radius:2px; color:#1C1C1C; text-decoration:none; background-image:linear-gradient(to right,#1C1C1C 50%, transparent 50%); background-size:200% 100%; background-position:right bottom; transition:background-position .35s cubic-bezier(0.25,0.46,0.45,0.94), color .35s ease, border-color .35s ease;" style-hover="background-position:left bottom; color:#F5F0E8; border-color:#1C1C1C;">Contáctanos</a>
+        </div>
+      </div>
+      <div data-reveal style="flex:0 1 430px; min-width:280px; position:relative; opacity:0; transform:translateY(24px); transition:opacity .8s ease .15s, transform .8s cubic-bezier(0.25,0.46,0.45,0.94) .15s;">
+        <div style="position:relative; aspect-ratio:4/5; background:#EDE8DF; border:1px solid #7A8C6E; padding:14px;">
+          <div style="height:100%; border:1px dashed #aebaa1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; text-align:center; color:#7A8C6E;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"></rect><circle cx="8.5" cy="9.5" r="1.6"></circle><path d="M21 15l-5-5L7 20"></path></svg>
+            <div style="font-size:11px; font-weight:500; letter-spacing:.2em; text-transform:uppercase;">Espacio para fotografía</div>
+            <div style="font-size:12.5px; color:#9a9384; max-width:210px; line-height:1.5;">Equipo o entorno de trabajo de LARAN</div>
+          </div>
+          <span style="position:absolute; top:7px; left:7px; width:16px; height:16px; border-top:1px solid #7A8C6E; border-left:1px solid #7A8C6E;"></span>
+          <span style="position:absolute; bottom:7px; right:7px; width:16px; height:16px; border-bottom:1px solid #7A8C6E; border-right:1px solid #7A8C6E;"></span>
+        </div>
+        <div style="position:absolute; left:-24px; bottom:-24px; width:100px; height:100px; border-radius:50%; background:#F5F0E8; border:1px solid #C8C0B4; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 28px rgba(28,28,28,.12);">
+          <img src="{{ logo }}" alt="LARAN" style="width:82px; height:82px; object-fit:contain;">
+        </div>
+      </div>
+    </div>
+    <div data-draw style="margin-top:clamp(56px,8vw,90px); display:flex; align-items:center; justify-content:center; gap:18px; max-width:560px; margin-left:auto; margin-right:auto;">
+      <span style="flex:1; height:1px; background:#C8C0B4;"></span>
+      <svg width="120" height="62" viewBox="0 0 120 62" fill="none" stroke="#7A8C6E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.75; flex:none;">
+        <path d="M60 58 C 59 44 61 28 60 12" style="stroke-dasharray:200; stroke-dashoffset:200; transition:stroke-dashoffset 1.2s ease;"></path>
+        <path d="M59 46 C 49 44 45 38 47 32 C 53 35 58 40 59 46 Z" style="stroke-dasharray:200; stroke-dashoffset:200; transition:stroke-dashoffset 1.2s ease .1s;"></path>
+        <path d="M61 40 C 71 38 75 32 73 26 C 67 29 62 34 61 40 Z" style="stroke-dasharray:200; stroke-dashoffset:200; transition:stroke-dashoffset 1.2s ease .16s;"></path>
+        <path d="M60 30 C 52 29 49 23 51 19 C 56 22 59 26 60 30 Z" style="stroke-dasharray:200; stroke-dashoffset:200; transition:stroke-dashoffset 1.2s ease .22s;"></path>
+        <path d="M60 12 C 56 10 56 5 60 4 C 64 5 64 10 60 12 Z" style="stroke-dasharray:200; stroke-dashoffset:200; transition:stroke-dashoffset 1.2s ease .28s;"></path>
+      </svg>
+      <span style="flex:1; height:1px; background:#C8C0B4;"></span>
+    </div>
+  </section>
+
+  <!-- ===================== NOSOTROS ===================== -->
+  <section id="nosotros" style="scroll-margin-top:70px; background:#EDE8DF; border-top:1px solid #C8C0B4; border-bottom:1px solid #C8C0B4; position:relative; overflow:hidden;">
+    <svg viewBox="0 0 160 210" fill="none" stroke="#7A8C6E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:absolute; top:-40px; right:-30px; width:340px; opacity:.06; transform:rotate(22deg); pointer-events:none;"><path d="M86 206 C 84 160 88 120 90 80 C 91 56 92 34 92 14"></path><path d="M89 158 C 64 154 51 138 53 121 C 73 127 86 141 89 158 Z"></path><path d="M91 138 C 116 134 129 118 127 101 C 107 107 94 121 91 138 Z"></path><path d="M90 116 C 68 113 57 99 59 83 C 77 89 88 100 90 116 Z"></path><path d="M92 94 C 113 91 123 77 121 61 C 103 67 95 78 92 94 Z"></path><path d="M91 70 C 74 68 65 56 67 43 C 81 48 90 59 91 70 Z"></path><path d="M93 48 C 108 46 116 36 114 24 C 100 29 94 38 93 48 Z"></path><path d="M92 22 C 87 19 87 11 92 8 C 97 11 97 19 92 22 Z"></path></svg>
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) clamp(20px,5vw,48px); position:relative;">
+      <div data-reveal style="display:flex; gap:clamp(32px,5vw,64px); align-items:center; flex-wrap:wrap; opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="flex:1 1 440px; min-width:300px;">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+            <span style="width:40px; height:1px; background:#7A8C6E;"></span>
+            <span style="font-size:12px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:#7A8C6E;">Quiénes somos</span>
+          </div>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(34px,4.6vw,54px); line-height:1.08; letter-spacing:-0.01em; margin:0 0 24px;">Creemos que el talento humano es el activo más valioso de toda organización.</h2>
+          <p style="font-size:18px; line-height:1.7; color:#4a463f; margin:0;">En LARAN diseñamos soluciones estratégicas personalizadas para fortalecer a las empresas desde adentro — con análisis, metodología y compromiso real.</p>
+        </div>
+        <div style="flex:0 1 360px; min-width:260px;">
+          <div style="position:relative; aspect-ratio:4/5; background:#F5F0E8; border:1px solid #7A8C6E; padding:14px;">
+            <div style="height:100%; border:1px dashed #aebaa1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; color:#7A8C6E;">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"></rect><circle cx="8.5" cy="9.5" r="1.6"></circle><path d="M21 15l-5-5L7 20"></path></svg>
+              <div style="font-size:11px; font-weight:500; letter-spacing:.2em; text-transform:uppercase;">Espacio para fotografía</div>
+              <div style="font-size:12.5px; color:#9a9384; max-width:200px; line-height:1.5;">Nuestro equipo en acción</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal style="margin-top:clamp(44px,5vw,60px); opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px;">
+          <span style="width:28px; height:1px; background:#7A8C6E;"></span>
+          <span style="font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:#7A8C6E;">Nuestro entorno</span>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;">
+          <div style="position:relative; aspect-ratio:3/2; background:#F5F0E8; border:1px solid #7A8C6E; padding:10px;"><div style="height:100%; border:1px dashed #aebaa1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; color:#7A8C6E;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"></rect><circle cx="8.5" cy="9.5" r="1.6"></circle><path d="M21 15l-5-5L7 20"></path></svg><span style="font-size:9.5px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;">Fotografía</span></div></div>
+          <div style="position:relative; aspect-ratio:3/2; background:#F5F0E8; border:1px solid #7A8C6E; padding:10px;"><div style="height:100%; border:1px dashed #aebaa1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; color:#7A8C6E;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"></rect><circle cx="8.5" cy="9.5" r="1.6"></circle><path d="M21 15l-5-5L7 20"></path></svg><span style="font-size:9.5px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;">Fotografía</span></div></div>
+          <div style="position:relative; aspect-ratio:3/2; background:#F5F0E8; border:1px solid #7A8C6E; padding:10px;"><div style="height:100%; border:1px dashed #aebaa1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; color:#7A8C6E;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"></rect><circle cx="8.5" cy="9.5" r="1.6"></circle><path d="M21 15l-5-5L7 20"></path></svg><span style="font-size:9.5px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;">Fotografía</span></div></div>
+        </div>
+      </div>
+
+      <!-- Misión / Visión -->
+      <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:16px; margin-top:clamp(48px,6vw,72px); opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="background:#F5F0E8; border:1px solid #C8C0B4; padding:clamp(34px,4vw,52px); position:relative; overflow:hidden;">
+          <svg viewBox="0 0 160 210" fill="none" stroke="#7A8C6E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:absolute; bottom:-56px; right:-34px; width:210px; opacity:.07; transform:rotate(168deg); pointer-events:none;"><path d="M86 206 C 84 160 88 120 90 80 C 91 56 92 34 92 14"></path><path d="M89 158 C 64 154 51 138 53 121 C 73 127 86 141 89 158 Z"></path><path d="M91 138 C 116 134 129 118 127 101 C 107 107 94 121 91 138 Z"></path><path d="M90 116 C 68 113 57 99 59 83 C 77 89 88 100 90 116 Z"></path><path d="M92 94 C 113 91 123 77 121 61 C 103 67 95 78 92 94 Z"></path><path d="M91 70 C 74 68 65 56 67 43 C 81 48 90 59 91 70 Z"></path><path d="M93 48 C 108 46 116 36 114 24 C 100 29 94 38 93 48 Z"></path><path d="M92 22 C 87 19 87 11 92 8 C 97 11 97 19 92 22 Z"></path></svg>
+          <div style="position:relative;">
+            <div style="width:52px; height:52px; border-radius:50%; background:rgba(122,140,110,.13); display:flex; align-items:center; justify-content:center; margin-bottom:22px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.4" fill="#7A8C6E"></circle></svg></div>
+            <div style="font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:#7A8C6E; margin-bottom:14px;">Misión</div>
+            <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(20px,2vw,25px); font-weight:400; line-height:1.5; color:#1C1C1C; margin:0;">Brindar servicios de consultoría organizacional que impulsen el crecimiento y fortalecimiento de las empresas mediante el análisis, diseño y optimización de sus procesos, contribuyendo a una gestión eficiente, innovadora y orientada al logro de resultados.</p>
+          </div>
+        </div>
+        <div style="background:#7A8C6E; padding:clamp(34px,4vw,52px); position:relative; overflow:hidden; color:#F5F0E8;">
+          <svg viewBox="0 0 160 210" fill="none" stroke="#F5F0E8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:absolute; bottom:-56px; right:-34px; width:210px; opacity:.18; transform:rotate(168deg); pointer-events:none;"><path d="M86 206 C 84 160 88 120 90 80 C 91 56 92 34 92 14"></path><path d="M89 158 C 64 154 51 138 53 121 C 73 127 86 141 89 158 Z"></path><path d="M91 138 C 116 134 129 118 127 101 C 107 107 94 121 91 138 Z"></path><path d="M90 116 C 68 113 57 99 59 83 C 77 89 88 100 90 116 Z"></path><path d="M92 94 C 113 91 123 77 121 61 C 103 67 95 78 92 94 Z"></path><path d="M91 70 C 74 68 65 56 67 43 C 81 48 90 59 91 70 Z"></path><path d="M93 48 C 108 46 116 36 114 24 C 100 29 94 38 93 48 Z"></path><path d="M92 22 C 87 19 87 11 92 8 C 97 11 97 19 92 22 Z"></path></svg>
+          <div style="position:relative;">
+            <div style="width:52px; height:52px; border-radius:50%; background:rgba(245,240,232,.18); display:flex; align-items:center; justify-content:center; margin-bottom:22px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F5F0E8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.8-7 10-7 10 7 10 7-3.8 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+            <div style="font-size:12px; font-weight:500; letter-spacing:.22em; text-transform:uppercase; color:#dfe5d6; margin-bottom:14px;">Visión</div>
+            <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(20px,2vw,25px); font-weight:400; line-height:1.5; color:#F5F0E8; margin:0;">Ser una consultoría reconocida por generar soluciones estratégicas que transformen organizaciones, fomentando la innovación, la mejora continua y el desarrollo sostenible para alcanzar altos niveles de desempeño y competitividad.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Valores -->
+      <div data-reveal style="margin-top:clamp(56px,7vw,88px); margin-bottom:28px; opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;">
+          <h3 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(28px,3.2vw,38px); margin:0;">Nuestros valores</h3>
+          <span style="font-size:13px; color:#8a8275; letter-spacing:.02em;">Lo que guía cada decisión que tomamos</span>
+        </div>
+      </div>
+      <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px; background:#C8C0B4; border:1px solid #C8C0B4; opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="background:#F5F0E8; padding:34px 30px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-1.7-1.1-4.3-1.6-6.5-1.6v13c2.2 0 4.8.5 6.5 1.6 1.7-1.1 4.3-1.6 6.5-1.6v-13C16.3 4.4 13.7 4.9 12 6z"></path><path d="M12 6v13"></path></svg>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; margin:18px 0 8px;">Compromiso educativo</div>
+          <p style="font-size:14px; line-height:1.65; color:#6a6358; margin:0;">Fortalecemos el talento humano con dedicación y enfoque en la calidad.</p>
+        </div>
+        <div style="background:#F5F0E8; padding:34px 30px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.3-3.2 7.5-7.5 8.5-4.3-1-7.5-4.2-7.5-8.5V6z"></path></svg>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; margin:18px 0 8px;">Responsabilidad</div>
+          <p style="font-size:14px; line-height:1.65; color:#6a6358; margin:0;">Actuamos con profesionalismo en cada proceso que acompañamos.</p>
+        </div>
+        <div style="background:#F5F0E8; padding:34px 30px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"></path><path d="M5.5 8h13"></path><path d="M5.5 8L3 13.5a2.5 2.5 0 0 0 5 0z"></path><path d="M18.5 8L16 13.5a2.5 2.5 0 0 0 5 0z"></path><path d="M8 20.5h8"></path></svg>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; margin:18px 0 8px;">Ética profesional</div>
+          <p style="font-size:14px; line-height:1.65; color:#6a6358; margin:0;">Decisiones justas, transparentes y centradas en el bienestar de las personas.</p>
+        </div>
+        <div style="background:#F5F0E8; padding:34px 30px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 18h5"></path><path d="M10 21h4"></path><path d="M12 3a6 6 0 0 0-3.8 10.7c.7.6 1.1 1.4 1.2 2.3h5.2c.1-.9.5-1.7 1.2-2.3A6 6 0 0 0 12 3z"></path></svg>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; margin:18px 0 8px;">Innovación</div>
+          <p style="font-size:14px; line-height:1.65; color:#6a6358; margin:0;">Estrategias y herramientas actualizadas para el contexto organizacional actual.</p>
+        </div>
+        <div style="background:#F5F0E8; padding:34px 30px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"></circle><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"></path><path d="M16 5.5a3 3 0 0 1 0 6"></path><path d="M17.5 14.2c2 .6 3.4 2.2 3.4 4.8"></path></svg>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; margin:18px 0 8px;">Trabajo colaborativo</div>
+          <p style="font-size:14px; line-height:1.65; color:#6a6358; margin:0;">Fomentamos la cooperación para alcanzar objetivos comunes.</p>
+        </div>
+        <div style="background:#F5F0E8; padding:34px 30px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-9.6A3.9 3.9 0 0 1 12 6.8 3.9 3.9 0 0 1 19 10.4C19 15.6 12 20 12 20z"></path></svg>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; margin:18px 0 8px;">Respeto</div>
+          <p style="font-size:14px; line-height:1.65; color:#6a6358; margin:0;">Valoramos la diversidad de ideas, experiencias y contextos.</p>
+        </div>
+        <div style="background:#F5F0E8; padding:34px 30px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6.1L12 16.9 6.6 19.7l1.2-6.1-4.5-4.2 6.1-.8z"></path></svg>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; margin:18px 0 8px;">Excelencia</div>
+          <p style="font-size:14px; line-height:1.65; color:#6a6358; margin:0;">Mejora continua en nuestros servicios para generar resultados de alto impacto.</p>
+        </div>
+        <div style="background:#F5F0E8; padding:34px 30px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.9A8 8 0 1 1 20.5 11.5z"></path></svg>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; margin:18px 0 8px;">Empatía</div>
+          <p style="font-size:14px; line-height:1.65; color:#6a6358; margin:0;">Escuchamos y comprendemos para brindar soluciones pertinentes.</p>
+        </div>
+        <div style="background:#F5F0E8; padding:34px 30px;">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"></path><path d="M17 7h4v4"></path></svg>
+          <div style="font-family:'Cormorant Garamond',serif; font-size:23px; font-weight:600; margin:18px 0 8px;">Desarrollo humano</div>
+          <p style="font-size:14px; line-height:1.65; color:#6a6358; margin:0;">Impulsamos el crecimiento profesional y personal de cada colaborador.</p>
+        </div>
+      </div>
+
+      <!-- Equipo / Organigrama -->
+      <div data-reveal style="margin-top:clamp(56px,7vw,88px); opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:8px;">
+          <h3 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(28px,3.2vw,38px); margin:0;">Nuestro equipo</h3>
+          <span style="font-size:13px; color:#8a8275; letter-spacing:.02em;">Estructura organizacional</span>
+        </div>
+        <p style="font-size:14px; color:#8a8275; margin:0 0 18px;">Los marcos circulares son espacios reservados para las fotografías del equipo.</p>
+      </div>
+
+      <div data-reveal style="overflow-x:auto; padding:8px 4px 16px; opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="min-width:880px; display:flex; flex-direction:column; align-items:center;">
+
+          <!-- L0 Directora -->
+          <div style="display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; width:200px;">
+            <div style="width:96px; height:96px; border-radius:50%; background:#EDE8DF; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 6px #F5F0E8, 0 0 0 7px #C8C0B4, 0 0 0 11px #F5F0E8, 0 0 0 12px #b8aa92;"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="opacity:.55;"><circle cx="12" cy="8.5" r="3.6"></circle><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"></path></svg></div>
+            <div><div style="font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;">Directora General</div><div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px; margin-top:2px;">Lesli Hernández</div></div>
+          </div>
+
+          <div style="width:1px; height:34px; background:#C8C0B4;"></div>
+
+          <!-- L1 fork: 3 columns -->
+          <div style="position:relative; width:100%;">
+            <div style="position:absolute; top:0; left:16.66%; right:16.66%; height:1px; background:#C8C0B4;"></div>
+            <div style="display:flex; align-items:flex-start;">
+
+              <!-- COL 1: Reclutamiento -->
+              <div style="flex:1; display:flex; flex-direction:column; align-items:center; padding:0 8px;">
+                <div style="width:1px; height:32px; background:#C8C0B4;"></div>
+                <div style="border:1px solid #C8C0B4; background:#F5F0E8; padding:12px 18px; font-size:12px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; text-align:center; line-height:1.4; max-width:220px;">Reclutamiento y Selección</div>
+                <div style="width:1px; height:30px; background:#C8C0B4;"></div>
+                <!-- sub fork: 2 -->
+                <div style="position:relative; width:100%;">
+                  <div style="position:absolute; top:0; left:25%; right:25%; height:1px; background:#C8C0B4;"></div>
+                  <div style="display:flex; align-items:flex-start;">
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:12px; padding:0 6px;">
+                      <div style="width:1px; height:28px; background:#C8C0B4;"></div>
+                      <div style="width:84px; height:84px; border-radius:50%; background:#EDE8DF; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 5px #F5F0E8, 0 0 0 6px #C8C0B4;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5;"><circle cx="12" cy="8.5" r="3.6"></circle><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"></path></svg></div>
+                      <div style="text-align:center;"><div style="font-size:10.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; line-height:1.4;">Coordinador de<br>Reclutamiento</div><div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; margin-top:3px;">Nancy Montejo</div></div>
+                    </div>
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:12px; padding:0 6px;">
+                      <div style="width:1px; height:28px; background:#C8C0B4;"></div>
+                      <div style="width:84px; height:84px; border-radius:50%; background:#EDE8DF; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 5px #F5F0E8, 0 0 0 6px #C8C0B4;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5;"><circle cx="12" cy="8.5" r="3.6"></circle><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"></path></svg></div>
+                      <div style="text-align:center;"><div style="font-size:10.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; line-height:1.4;">Analista de Selección<br>de Personal</div><div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; margin-top:3px;">Lesli Hernández</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COL 2: Marketing (persona) -->
+              <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:12px; padding:0 8px;">
+                <div style="width:1px; height:32px; background:#C8C0B4;"></div>
+                <div style="width:84px; height:84px; border-radius:50%; background:#EDE8DF; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 5px #F5F0E8, 0 0 0 6px #C8C0B4;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5;"><circle cx="12" cy="8.5" r="3.6"></circle><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"></path></svg></div>
+                <div style="text-align:center;"><div style="font-size:10.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; line-height:1.4;">Coordinador de<br>Marketing</div><div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; margin-top:3px;">Rogelio Capeline</div></div>
+              </div>
+
+              <!-- COL 3: Capacitación -->
+              <div style="flex:1; display:flex; flex-direction:column; align-items:center; padding:0 8px;">
+                <div style="width:1px; height:32px; background:#C8C0B4;"></div>
+                <div style="border:1px solid #C8C0B4; background:#F5F0E8; padding:12px 18px; font-size:12px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; text-align:center; line-height:1.4; max-width:230px;">Capacitación y Desarrollo del Talento</div>
+                <div style="width:1px; height:30px; background:#C8C0B4;"></div>
+                <div style="display:flex; flex-direction:column; align-items:center; gap:12px;">
+                  <div style="width:84px; height:84px; border-radius:50%; background:#EDE8DF; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 5px #F5F0E8, 0 0 0 6px #C8C0B4;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5;"><circle cx="12" cy="8.5" r="3.6"></circle><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"></path></svg></div>
+                  <div style="text-align:center;"><div style="font-size:10.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; line-height:1.4;">Coordinador de<br>Capacitación</div><div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; margin-top:3px;">Amayrani Herrera</div></div>
+                </div>
+                <div style="width:1px; height:30px; background:#C8C0B4;"></div>
+                <!-- sub fork: 2 -->
+                <div style="position:relative; width:100%;">
+                  <div style="position:absolute; top:0; left:25%; right:25%; height:1px; background:#C8C0B4;"></div>
+                  <div style="display:flex; align-items:flex-start;">
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:12px; padding:0 6px;">
+                      <div style="width:1px; height:28px; background:#C8C0B4;"></div>
+                      <div style="width:84px; height:84px; border-radius:50%; background:#EDE8DF; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 5px #F5F0E8, 0 0 0 6px #C8C0B4;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5;"><circle cx="12" cy="8.5" r="3.6"></circle><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"></path></svg></div>
+                      <div style="text-align:center;"><div style="font-size:10.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; line-height:1.4;">Especialista en<br>Desarrollo Profesional</div><div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; margin-top:3px;">Aracely Estrada</div></div>
+                    </div>
+                    <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:12px; padding:0 6px;">
+                      <div style="width:1px; height:28px; background:#C8C0B4;"></div>
+                      <div style="width:84px; height:84px; border-radius:50%; background:#EDE8DF; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 5px #F5F0E8, 0 0 0 6px #C8C0B4;"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="opacity:.5;"><circle cx="12" cy="8.5" r="3.6"></circle><path d="M5 20c0-3.6 3-6 7-6s7 2.4 7 6"></path></svg></div>
+                      <div style="text-align:center;"><div style="font-size:10.5px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; line-height:1.4;">Diseñador de Programas<br>de Formación</div><div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:17px; margin-top:3px;">Rogelio Capeline</div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICIOS ===================== -->
+  <section id="servicios" style="scroll-margin-top:70px; position:relative; overflow:hidden;">
+    <svg viewBox="0 0 160 210" fill="none" stroke="#7A8C6E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:absolute; bottom:-50px; left:-44px; width:320px; opacity:.05; transform:rotate(-158deg); pointer-events:none;"><path d="M86 206 C 84 160 88 120 90 80 C 91 56 92 34 92 14"></path><path d="M89 158 C 64 154 51 138 53 121 C 73 127 86 141 89 158 Z"></path><path d="M91 138 C 116 134 129 118 127 101 C 107 107 94 121 91 138 Z"></path><path d="M90 116 C 68 113 57 99 59 83 C 77 89 88 100 90 116 Z"></path><path d="M92 94 C 113 91 123 77 121 61 C 103 67 95 78 92 94 Z"></path><path d="M91 70 C 74 68 65 56 67 43 C 81 48 90 59 91 70 Z"></path><path d="M93 48 C 108 46 116 36 114 24 C 100 29 94 38 93 48 Z"></path><path d="M92 22 C 87 19 87 11 92 8 C 97 11 97 19 92 22 Z"></path></svg>
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) clamp(20px,5vw,48px); position:relative;">
+      <div data-reveal style="max-width:760px; margin-bottom:clamp(40px,5vw,64px); opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+          <span style="width:40px; height:1px; background:#7A8C6E;"></span>
+          <span style="font-size:12px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:#7A8C6E;">Lo que hacemos</span>
+        </div>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(34px,4.6vw,54px); line-height:1.08; letter-spacing:-0.01em; margin:0 0 24px;">Soluciones para cada etapa del ciclo organizacional.</h2>
+        <p style="font-size:18px; line-height:1.7; color:#4a463f; margin:0;">Cada servicio es personalizado a las necesidades específicas de tu empresa. No hay fórmulas genéricas — hay diagnóstico, estrategia y acompañamiento real.</p>
+      </div>
+
+      <div style="border-top:1px solid #C8C0B4;">
+        <sc-for list="{{ servicios }}" as="s" hint-placeholder-count="5">
+          <div style="border-bottom:1px solid #C8C0B4; background:#F5F0E8; transition:box-shadow .25s ease, background .25s ease;" style-hover="box-shadow:inset 3px 0 0 #7A8C6E; background:#EDE8DF;">
+            <div style="display:flex; gap:clamp(20px,4vw,48px); padding:clamp(28px,3.5vw,44px) clamp(8px,2vw,28px); flex-wrap:wrap; align-items:flex-start;">
+              <div style="font-family:'Cormorant Garamond',serif; font-size:clamp(40px,5vw,64px); font-weight:300; color:#7A8C6E; line-height:1; flex:none;">{{ s.num }}</div>
+              <div style="flex:1 1 340px; min-width:260px;">
+                <h3 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(24px,2.6vw,32px); line-height:1.15; margin:0 0 14px;">{{ s.nombre }}</h3>
+                <p style="font-size:15.5px; line-height:1.7; color:#5a564d; margin:0 0 22px; max-width:640px;">{{ s.descripcion }}</p>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px;">
+                  <sc-for list="{{ s.incluye }}" as="item" hint-placeholder-count="4">
+                    <span style="font-size:12.5px; color:#4a463f; background:#EDE8DF; border:1px solid #C8C0B4; border-radius:2px; padding:6px 12px; line-height:1.3;">{{ item }}</span>
+                  </sc-for>
+                </div>
+                <div style="display:inline-flex; align-items:center; gap:14px; background:#7A8C6E; color:#F5F0E8; padding:13px 20px; border-radius:2px; max-width:100%;">
+                  <svg width="20" height="24" viewBox="0 0 24 28" fill="none" stroke="#F5F0E8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" style="flex:none;"><path d="M12 26 C 12 18 12 10 12 3"></path><path d="M12 16 C 6 15 3 11 4 6 C 9 7 12 11 12 16 Z"></path><path d="M12 12 C 18 11 21 7 20 2 C 15 3 12 7 12 12 Z"></path></svg>
+                  <span style="display:flex; flex-direction:column; gap:2px;"><span style="font-size:10px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:#dfe5d6;">Resultado</span><span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:19px; line-height:1.25;">{{ s.resultado }}</span></span>
+                </div>
+              </div>
+              <div style="flex:0 1 210px; min-width:170px; align-self:stretch;">
+                <div style="aspect-ratio:4/5; min-height:200px; height:100%; background:#EDE8DF; border:1px solid #7A8C6E; padding:9px;"><div style="height:100%; border:1px dashed #aebaa1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:9px; color:#7A8C6E;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"></rect><circle cx="8.5" cy="9.5" r="1.6"></circle><path d="M21 15l-5-5L7 20"></path></svg><span style="font-size:9.5px; font-weight:500; letter-spacing:.16em; text-transform:uppercase;">Fotografía</span></div></div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIOS ===================== -->
+  <section id="testimonios" style="scroll-margin-top:70px; background:#EDE8DF; border-top:1px solid #C8C0B4; border-bottom:1px solid #C8C0B4; position:relative; overflow:hidden;">
+    <svg viewBox="0 0 160 210" fill="none" stroke="#7A8C6E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:absolute; top:-40px; left:-30px; width:300px; opacity:.06; transform:rotate(-26deg); pointer-events:none;"><path d="M86 206 C 84 160 88 120 90 80 C 91 56 92 34 92 14"></path><path d="M89 158 C 64 154 51 138 53 121 C 73 127 86 141 89 158 Z"></path><path d="M91 138 C 116 134 129 118 127 101 C 107 107 94 121 91 138 Z"></path><path d="M90 116 C 68 113 57 99 59 83 C 77 89 88 100 90 116 Z"></path><path d="M92 94 C 113 91 123 77 121 61 C 103 67 95 78 92 94 Z"></path><path d="M91 70 C 74 68 65 56 67 43 C 81 48 90 59 91 70 Z"></path><path d="M93 48 C 108 46 116 36 114 24 C 100 29 94 38 93 48 Z"></path><path d="M92 22 C 87 19 87 11 92 8 C 97 11 97 19 92 22 Z"></path></svg>
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) clamp(20px,5vw,48px); position:relative;">
+      <div data-reveal style="max-width:680px; margin-bottom:clamp(40px,5vw,60px); opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+          <span style="width:40px; height:1px; background:#7A8C6E;"></span>
+          <span style="font-size:12px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:#7A8C6E;">Lo que dicen nuestros clientes</span>
+        </div>
+        <h2 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(34px,4.6vw,54px); line-height:1.08; margin:0;">Resultados que hablan por sí solos.</h2>
+      </div>
+      <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:1px; background:#C8C0B4; border:1px solid #C8C0B4; opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+        <div style="background:#F5F0E8; padding:clamp(30px,3vw,44px); display:flex; flex-direction:column;">
+          <span style="font-family:'Cormorant Garamond',serif; font-size:56px; line-height:0.6; color:#C8C0B4; height:30px;">“</span>
+          <p style="font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:clamp(20px,2vw,24px); line-height:1.45; color:#1C1C1C; margin:0 0 28px; flex:1;">LARAN transformó completamente nuestro proceso de reclutamiento. En menos de tres meses redujimos la rotación de personal en un 40%.</p>
+          <div style="border-top:1px solid #C8C0B4; padding-top:18px;"><div style="font-weight:500; font-size:14px;">Carlos Méndez</div><div style="font-size:12.5px; color:#8a8275; margin-top:3px;">Gerente de Recursos Humanos · Hotel Riviera Maya</div></div>
+        </div>
+        <div style="background:#7A8C6E; padding:clamp(30px,3vw,44px); display:flex; flex-direction:column; color:#F5F0E8;">
+          <span style="font-family:'Cormorant Garamond',serif; font-size:56px; line-height:0.6; color:rgba(245,240,232,.45); height:30px;">“</span>
+          <p style="font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:clamp(20px,2vw,24px); line-height:1.45; color:#F5F0E8; margin:0 0 28px; flex:1;">El diagnóstico de clima laboral nos dio claridad sobre problemas que llevaban años sin atenderse. El equipo es profesional, empático y realmente comprometido con los resultados.</p>
+          <div style="border-top:1px solid rgba(245,240,232,.3); padding-top:18px;"><div style="font-weight:500; font-size:14px;">Sofía Ramírez</div><div style="font-size:12.5px; color:#dfe5d6; margin-top:3px;">Directora Administrativa · PYME Cancún</div></div>
+        </div>
+        <div style="background:#F5F0E8; padding:clamp(30px,3vw,44px); display:flex; flex-direction:column;">
+          <span style="font-family:'Cormorant Garamond',serif; font-size:56px; line-height:0.6; color:#C8C0B4; height:30px;">“</span>
+          <p style="font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:clamp(20px,2vw,24px); line-height:1.45; color:#1C1C1C; margin:0 0 28px; flex:1;">Gracias a la auditoría de experiencia del colaborador logramos reducir el ausentismo y mejorar notablemente el ambiente de trabajo en toda la organización.</p>
+          <div style="border-top:1px solid #C8C0B4; padding-top:18px;"><div style="font-weight:500; font-size:14px;">Jorge Villanueva</div><div style="font-size:12.5px; color:#8a8275; margin-top:3px;">Director General · Servicios Profesionales PDC</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section id="contacto" style="scroll-margin-top:70px; position:relative; overflow:hidden;">
+    <svg viewBox="0 0 160 210" fill="none" stroke="#7A8C6E" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:absolute; top:8%; right:-44px; width:320px; opacity:.05; transform:rotate(158deg); pointer-events:none;"><path d="M86 206 C 84 160 88 120 90 80 C 91 56 92 34 92 14"></path><path d="M89 158 C 64 154 51 138 53 121 C 73 127 86 141 89 158 Z"></path><path d="M91 138 C 116 134 129 118 127 101 C 107 107 94 121 91 138 Z"></path><path d="M90 116 C 68 113 57 99 59 83 C 77 89 88 100 90 116 Z"></path><path d="M92 94 C 113 91 123 77 121 61 C 103 67 95 78 92 94 Z"></path><path d="M91 70 C 74 68 65 56 67 43 C 81 48 90 59 91 70 Z"></path><path d="M93 48 C 108 46 116 36 114 24 C 100 29 94 38 93 48 Z"></path><path d="M92 22 C 87 19 87 11 92 8 C 97 11 97 19 92 22 Z"></path></svg>
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(64px,8vw,96px) clamp(20px,5vw,48px); position:relative;">
+      <div style="display:flex; gap:clamp(40px,6vw,80px); flex-wrap:wrap;">
+        <div data-reveal style="flex:1 1 360px; min-width:300px; opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(0.25,0.46,0.45,0.94);">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+            <span style="width:40px; height:1px; background:#7A8C6E;"></span>
+            <span style="font-size:12px; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:#7A8C6E;">Hablemos</span>
+          </div>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:clamp(34px,4.4vw,52px); line-height:1.08; margin:0 0 22px;">¿Listo para transformar tu organización?</h2>
+          <p style="font-size:18px; line-height:1.7; color:#4a463f; margin:0 0 40px; max-width:460px;">Cuéntanos sobre los retos de tu empresa. Analizamos tu caso sin costo y sin compromiso.</p>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <div style="display:flex; align-items:center; gap:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"></rect><path d="M3 6.5l9 6 9-6"></path></svg><span style="font-size:15px; color:#3a362f;">contacto@consultorialaran.com</span></div>
+            <div style="display:flex; align-items:center; gap:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l1.5 5-2 1.5a12 12 0 0 0 6 6l1.5-2 5 1.5v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"></path></svg><span style="font-size:15px; color:#3a362f;">+52 (984) 000-0000</span></div>
+            <div style="display:flex; align-items:center; gap:14px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 0 0-14 0c0 5.5 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg><span style="font-size:15px; color:#3a362f;">Playa del Carmen, Quintana Roo, México</span></div>
+          </div>
+        </div>
+
+        <div data-reveal style="flex:1 1 380px; min-width:300px; background:#EDE8DF; border:1px solid #C8C0B4; padding:clamp(28px,3.5vw,44px); opacity:0; transform:translateY(24px); transition:opacity .8s ease .1s, transform .8s cubic-bezier(0.25,0.46,0.45,0.94) .1s;">
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:380px; gap:18px;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7A8C6E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M8 12.5l2.5 2.5 5-5.5"></path></svg>
+              <h3 style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:30px; margin:0;">¡Gracias por escribirnos!</h3>
+              <p style="font-size:15px; color:#5a564d; line-height:1.6; margin:0; max-width:320px;">Hemos recibido tu mensaje. Te contactaremos muy pronto para analizar el caso de tu empresa.</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+            <form onSubmit="{{ onSubmit }}">
+              <div style="display:flex; flex-direction:column; gap:18px;">
+                <label style="display:flex; flex-direction:column; gap:8px;"><span style="font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:#6a6358;">Nombre completo</span><input type="text" required placeholder="Tu nombre" style="font-family:'DM Sans',sans-serif; font-size:15px; color:#1C1C1C; background:#F5F0E8; border:1px solid #C8C0B4; border-radius:2px; padding:13px 14px; transition:border-color .2s ease;"></label>
+                <label style="display:flex; flex-direction:column; gap:8px;"><span style="font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:#6a6358;">Empresa / Organización</span><input type="text" placeholder="Nombre de tu empresa" style="font-family:'DM Sans',sans-serif; font-size:15px; color:#1C1C1C; background:#F5F0E8; border:1px solid #C8C0B4; border-radius:2px; padding:13px 14px; transition:border-color .2s ease;"></label>
+                <label style="display:flex; flex-direction:column; gap:8px;"><span style="font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:#6a6358;">Correo electrónico</span><input type="email" required placeholder="correo@empresa.com" style="font-family:'DM Sans',sans-serif; font-size:15px; color:#1C1C1C; background:#F5F0E8; border:1px solid #C8C0B4; border-radius:2px; padding:13px 14px; transition:border-color .2s ease;"></label>
+                <label style="display:flex; flex-direction:column; gap:8px;"><span style="font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:#6a6358;">Teléfono</span><input type="tel" placeholder="+52 (984) 000-0000 — opcional" style="font-family:'DM Sans',sans-serif; font-size:15px; color:#1C1C1C; background:#F5F0E8; border:1px solid #C8C0B4; border-radius:2px; padding:13px 14px; transition:border-color .2s ease;"></label>
+                <label style="display:flex; flex-direction:column; gap:8px;"><span style="font-size:12px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:#6a6358;">Mensaje</span><textarea rows="4" placeholder="¿En qué podemos ayudarte?" style="font-family:'DM Sans',sans-serif; font-size:15px; color:#1C1C1C; background:#F5F0E8; border:1px solid #C8C0B4; border-radius:2px; padding:13px 14px; resize:vertical; transition:border-color .2s ease;"></textarea></label>
+                <button type="submit" style="display:inline-flex; align-items:center; justify-content:center; gap:10px; font-family:'DM Sans',sans-serif; font-weight:500; font-size:14px; letter-spacing:.04em; padding:16px 28px; border:1px solid #1C1C1C; border-radius:2px; color:#1C1C1C; cursor:pointer; background-image:linear-gradient(to right,#7A8C6E 50%, transparent 50%); background-size:200% 100%; background-position:right bottom; transition:background-position .35s cubic-bezier(0.25,0.46,0.45,0.94), color .35s ease, border-color .35s ease;" style-hover="background-position:left bottom; color:#F5F0E8; border-color:#7A8C6E;">Enviar mensaje <span style="font-size:16px;">→</span></button>
+              </div>
+            </form>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="background:#1C1C1C; color:#F5F0E8;">
+    <div style="max-width:1200px; margin:0 auto; padding:clamp(56px,7vw,80px) clamp(20px,5vw,48px) clamp(28px,4vw,40px);">
+      <div style="display:flex; gap:48px; flex-wrap:wrap; justify-content:space-between; align-items:flex-start;">
+        <div style="flex:1 1 320px; min-width:260px;">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+            <span style="width:54px; height:54px; border-radius:50%; background:#F5F0E8; display:flex; align-items:center; justify-content:center; flex:none;"><img src="{{ logo }}" alt="LARAN" style="width:46px; height:46px; object-fit:contain;"></span>
+            <span style="display:flex; flex-direction:column; line-height:1;"><span style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:26px; letter-spacing:.14em;">LARAN</span><span style="font-size:8.5px; font-weight:500; letter-spacing:.26em; text-transform:uppercase; color:#9aa18f; margin-top:4px;">Consultoría Organizacional</span></span>
+          </div>
+          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; font-weight:300; color:#e8e1d4; margin:0; max-width:340px;">Impulsamos el cambio, potenciamos resultados.</p>
+        </div>
+        <div style="flex:0 1 auto;">
+          <div style="font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:#9aa18f; margin-bottom:18px;">Navegación</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <a href="#inicio" style="font-size:14px; color:#e8e1d4; text-decoration:none;">Inicio</a>
+            <a href="#nosotros" style="font-size:14px; color:#e8e1d4; text-decoration:none;">Nosotros</a>
+            <a href="#servicios" style="font-size:14px; color:#e8e1d4; text-decoration:none;">Servicios</a>
+            <a href="#testimonios" style="font-size:14px; color:#e8e1d4; text-decoration:none;">Testimonios</a>
+            <a href="#contacto" style="font-size:14px; color:#e8e1d4; text-decoration:none;">Contacto</a>
+          </div>
+        </div>
+        <div style="flex:0 1 auto;">
+          <div style="font-size:11px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:#9aa18f; margin-bottom:18px;">Contacto</div>
+          <div style="display:flex; flex-direction:column; gap:12px; font-size:14px; color:#e8e1d4;">
+            <span>contacto@consultorialaran.com</span>
+            <span>+52 (984) 000-0000</span>
+            <span>Playa del Carmen, Q. Roo, México</span>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #3a3a36; margin-top:clamp(40px,5vw,56px); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+        <span style="font-size:12.5px; color:#8c8c84;">© 2026 Consultoría LARAN. Todos los derechos reservados.</span>
+        <span style="font-size:12.5px; color:#8c8c84;">Hecho con cuidado en Playa del Carmen.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  navRef = React.createRef();
+  state = { sent: false };
+
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reveals = Array.from(document.querySelectorAll('[data-reveal]'));
+    const draws = Array.from(document.querySelectorAll('[data-draw]'));
+    const showEl = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };
+    const drawEl = (el) => { el.querySelectorAll('path').forEach(p => { p.style.strokeDashoffset = '0'; }); };
+    const showAll = () => { reveals.forEach(showEl); draws.forEach(drawEl); };
+
+    if (reduce || !('IntersectionObserver' in window)) {
+      showAll();
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          const el = e.target;
+          if (el.hasAttribute('data-draw')) drawEl(el); else showEl(el);
+          io.unobserve(el);
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      reveals.forEach((el) => io.observe(el));
+      draws.forEach((el) => io.observe(el));
+      // safety fallback
+      this.__fallback = setTimeout(showAll, 4500);
+    }
+
+    const nav = this.navRef.current;
+    if (nav) {
+      const onScroll = () => {
+        if (window.scrollY > 80) {
+          nav.style.background = 'rgba(245,240,232,0.88)';
+          nav.style.backdropFilter = 'blur(10px)';
+          nav.style.webkitBackdropFilter = 'blur(10px)';
+          nav.style.boxShadow = '0 1px 0 #C8C0B4, 0 2px 12px rgba(28,28,28,0.06)';
+        } else {
+          nav.style.background = 'transparent';
+          nav.style.backdropFilter = 'none';
+          nav.style.webkitBackdropFilter = 'none';
+          nav.style.boxShadow = 'none';
+        }
+      };
+      this.__onScroll = onScroll;
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.__onScroll) window.removeEventListener('scroll', this.__onScroll);
+    if (this.__fallback) clearTimeout(this.__fallback);
+  }
+
+  renderVals() {
+    return {
+      logo: 'assets/laran-logo.png',
+      navRef: this.navRef,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      onSubmit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      servicios: [
+        {
+          num: '01',
+          nombre: 'Diagnóstico de Comunicación y Clima Laboral',
+          descripcion: 'Evaluamos la calidad de la comunicación interna y el clima laboral para identificar fortalezas, áreas de oportunidad y factores que afectan el desempeño de tu equipo.',
+          incluye: ['Encuestas, entrevistas y grupos focales', 'Evaluación de canales de comunicación interna', 'Análisis del estilo de liderazgo', 'Talleres de comunicación y resolución de conflictos', 'Estrategias alineadas con tus objetivos'],
+          resultado: 'Mejor comunicación, mayor compromiso, ambiente colaborativo.'
+        },
+        {
+          num: '02',
+          nombre: 'Auditoría de la Experiencia del Colaborador',
+          descripcion: 'Analizamos la experiencia de cada colaborador a lo largo de su ciclo laboral completo para fortalecer su compromiso, satisfacción y permanencia en la organización.',
+          incluye: ['Employee Journey Map completo', 'Diagnóstico de satisfacción por etapa', 'Revisión de inducción e integración', 'Capacitación a líderes en gestión de personas', 'Plan de mejora personalizado'],
+          resultado: 'Mayor retención de talento e imagen como empleador atractivo.'
+        },
+        {
+          num: '03',
+          nombre: 'Sistema de Predicción de Rotación Laboral',
+          descripcion: 'Identificamos oportunamente los factores de riesgo de rotación mediante indicadores organizacionales para que puedas actuar antes de perder a tu talento clave.',
+          incluye: ['Análisis de rotación, ausentismo y permanencia', 'Identificación de puestos críticos', 'Tableros de control para Recursos Humanos', 'Estrategias de retención del talento', 'Reportes periódicos de seguimiento'],
+          resultado: 'Decisiones preventivas basadas en datos, no en intuición.'
+        },
+        {
+          num: '04',
+          nombre: 'Optimización de Procesos Organizacionales',
+          descripcion: 'Analizamos y rediseñamos los procesos internos de tu empresa para eliminar cuellos de botella, duplicidades y tiempos muertos que frenan el rendimiento de tus equipos.',
+          incluye: ['Diagnóstico y mapeo completo de procesos', 'Rediseño y estandarización de procesos', 'Manuales de procedimientos y diagramas de flujo', 'Asesoría en herramientas digitales', 'Acompañamiento en la implementación'],
+          resultado: 'Mayor productividad, mejor coordinación, recursos optimizados.'
+        },
+        {
+          num: '05',
+          nombre: 'Diagnóstico de Riesgos Psicosociales y Bienestar',
+          descripcion: 'Evaluamos los factores de riesgo psicosocial presentes en tu organización para diseñar estrategias que promuevan el bienestar laboral y un entorno de trabajo verdaderamente saludable.',
+          incluye: ['Evaluación de factores de riesgo psicosocial', 'Diagnóstico de bienestar y satisfacción', 'Plan de acción personalizado', 'Programas de manejo del estrés y burnout', 'Evaluación del impacto de las acciones'],
+          resultado: 'Menos ausentismo, mejor clima y cultura de prevención.'
+        }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
